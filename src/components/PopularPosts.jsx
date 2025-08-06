@@ -2,7 +2,6 @@ import React from 'react'
 import { popularPosts } from '@/lib/blogData'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Badge } from './ui/badge'
 
 const PopularPosts = ({title}) => {
   return (

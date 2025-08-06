@@ -4,6 +4,7 @@ import HorizontalSlider from "@/components/HorizontalSlider";
 import CardSlider from "@/components/CardSlider";
 import PopularPosts from "@/components/PopularPosts";
 import PopularAuthor from "@/components/PopularAuthor";
+import AllCategories from "@/components/AllCategories";
 
 export default function Home() {
   return (
@@ -14,8 +15,7 @@ export default function Home() {
       <PopularAuthor title="Popular Authors" subTitle="Explore the altest articles"/>
       <CardSlider title="Post Of The Month" subTitle="Explore the popular articles" size="card"/>
       <PopularPosts title="Popular Technology" subTitle="Explore the altest articles"/>
-      <p>Author Grid:: 2 Col</p>
-      <p>Popular Posts :: List</p>
+      <AllCategories title="Suggested Categories" subTitle="Explore the altest articles"/>
     </div>
   );
 }

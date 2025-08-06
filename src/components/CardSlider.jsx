@@ -24,12 +24,11 @@ const CardSlider = ({title, size }) => {
               >
                 {
                   (size === 'card' ? latestPostslider.slice(0, 3) : latestPostslider.slice(4, 8)).map((item, i)=>{
-                    console.log(item);
                       return(
                          <SwiperSlide key={i}>
                             <div 
                               className={clsx(
-                                'card rounded-2xl relative overflow-hidden',
+                                'cardAfter rounded-2xl relative overflow-hidden',
                                 size === 'card' ? 'w-[280px] h-[180px]' : 'w-[160px] h-[250px]'
                               )}
                             >

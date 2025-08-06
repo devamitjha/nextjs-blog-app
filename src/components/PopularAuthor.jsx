@@ -17,7 +17,7 @@ const PopularAuthor = ({title}) => {
         {
             (popularPosts).slice(2,7).map((item, i)=>{
                 return(
-                    <div className="bg-white rounded-xl flex justify-between items-center gap-4" key={i}>
+                    <div className="bg-white rounded-xl flex justify-start items-center gap-4" key={i}>
                         <Link href={item.catUrl} className="flex-shrink-0">
                             <Image src={item.img} alt={item.title} width={50} height={50}  className="object-cover rounded-full w-[50px] h-[50px]"/>             
                         </Link>
