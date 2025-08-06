@@ -15,16 +15,16 @@ const PopularAuthor = ({title}) => {
       </div>      
       <div className="w-full px-4 grid grid-cols-1 gap-4">      
         {
-            (popularPosts).slice(2,7).map((item)=>{
+            (popularPosts).slice(2,7).map((item, i)=>{
                 return(
-                    <div className="bg-white rounded-xl flex justify-between items-center gap-4">
+                    <div className="bg-white rounded-xl flex justify-between items-center gap-4" key={i}>
                         <Link href={item.catUrl} className="flex-shrink-0">
                             <Image src={item.img} alt={item.title} width={50} height={50}  className="object-cover rounded-full w-[50px] h-[50px]"/>             
                         </Link>
                         <div className="flex justify-between items-center gap-4">
                             <Link href={item.catUrl} className="block">
                                 <p className="text-black mt-1 text-sm font-semibold line-clamp-1">{item.title}</p>
-                                <div class="post-date text-gray-500 mt-1 text-sm">30 minutes ago</div>
+                                <div className="post-date text-gray-500 mt-1 text-sm">30 minutes ago</div>
                             </Link>
                             <Button size="sm">
                                 <Plus />Follow
