@@ -34,9 +34,9 @@ const Header = () => {
                 </div>              
             }            
           </div>
-          <Link href="notification relative">
+          <Link href="notification" className="relative">
             <Bell />
-            {notification >=1 && <div className="absolute top-2 right-3 w-5 h-5 rounded-full bg-black text-white flex justify-center items-center text-xs">5</div>}            
+            {notification >=1 && <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-black text-white flex justify-center items-center text-xs">5</div>}            
           </Link>
       </div>
     </div>
