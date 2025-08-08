@@ -1,10 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Counter from '@/components/Counter';
 
-export default function Category ({ params })  {
-  const { slug } = params;
+export default async function Category ({ params })  {
+  const { slug } = await params
   return (
     <div>
       <h1 className="text-2xl font-bold">Category: {slug}</h1>
+      <Counter/>
     </div>
   )
 }

@@ -9,12 +9,19 @@ import blogPostImage7 from "@/assets/posts/8.jpg";
 import blogPostImage8 from "@/assets/posts/9.jpg";
 
 
-import category1 from "@/assets/categories/1.jpg";
-import category2 from "@/assets/categories/2.jpg";
-import category3 from "@/assets/categories/3.jpg";
-import category4 from "@/assets/categories/4.jpg";
-import category5 from "@/assets/categories/5.jpg";
-import category6 from "@/assets/categories/6.jpg";
+import Travel from "@/assets/categories/travel.jpg";
+import Health from "@/assets/categories/health.jpg";
+import Food from "@/assets/categories/food.jpg";
+import Environment from "@/assets/categories/environment.jpg";
+import Art from "@/assets/categories/art.jpg";
+import Science from "@/assets/categories/science.jpg";
+import Sports from "@/assets/categories/sports.jpg";
+import Tech from "@/assets/categories/tech.jpg";
+import Politics from "@/assets/categories/politics.jpg";
+import Economics from "@/assets/categories/economics.jpg";
+import Music from "@/assets/categories/music.jpg";
+import Fashion from "@/assets/categories/fashion.jpg";
+
 
 export const latestPostslider = [
     {
@@ -183,36 +190,72 @@ export const trendingItem = [
         title:"Technology",
         slug:"technology",
         url:"/category/technology",
-        img:category1,
+        img:Tech,
     },
-     {
+    {
         title:"Science",
         slug:"science",
         url:"/category/science",
-        img:category2,
+        img:Science,
     },
     {
-        title:"Music",
-        slug:"music",
-        url:"/category/music",
-        img:category3,
+        title:"Economics",
+        slug:"economics",
+        url:"/category/economics",
+        img:Economics,
     },
     {
-        title:"Travel",
-        slug:"travel",
-        url:"/category/travel",
-        img:category4,
+        title:"Politics",
+        slug:"politics",
+        url:"/category/politics",
+        img:Politics,
     },
     {
         title:"Sports",
         slug:"sports",
         url:"/category/sports",
-        img:category5,
-    },  
+        img:Sports,
+    }, 
     {
-        title:"Politics",
-        slug:"politics",
-        url:"/category/politics",
-        img:category6,
+        title:"Travel",
+        slug:"travel",
+        url:"/category/travel",
+        img:Travel,
+    },
+    {
+        title:"Music",
+        slug:"music",
+        url:"/category/music",
+        img:Music,
+    },    
+    {
+        title:"Health",
+        slug:"health",
+        url:"/category/health",
+        img:Health,
+    },
+    {
+        title:"Food",
+        slug:"-fFood",
+        url:"/category/food",
+        img:Food,
+    },
+    {
+        title:"Environment",
+        slug:"environment",
+        url:"/category/environment",
+        img:Environment,
+    },
+    {
+        title:"Art",
+        slug:"art",
+        url:"/category/art",
+        img:Art,
+    },     
+    {
+        title:"Fashion",
+        slug:"fashion",
+        url:"/category/fashion",
+        img:Fashion,
     } 
  ]

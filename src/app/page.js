@@ -12,10 +12,10 @@ export default function Home() {
       <CardSlider title="Latest Posts" subTitle="Explore the altest articles" size="sticker" additionalClass="text-2xl"/>
       <PopularPosts title="Popular Posts" subTitle="Explore the altest articles"/>
       <HorizontalSlider title="Trending Topics" subTitle="Explore the most viewed articles"/>
-      <PopularAuthor title="Popular Authors" subTitle="Explore the altest articles"/>
+      <PopularAuthor title="Popular Authors" subTitle="Explore the altest articles" dataTitle="popular"/>
       <CardSlider title="Post Of The Month" subTitle="Explore the popular articles" size="card"/>
       <PopularPosts title="Popular Technology" subTitle="Explore the altest articles"/>
-      <AllCategories title="Suggested Categories" subTitle="Explore the altest articles"/>
+      <AllCategories title="Suggested Categories" subTitle="Explore the altest articles" pageLocation="home" />
     </div>
   );
 }
