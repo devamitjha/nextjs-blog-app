@@ -26,13 +26,14 @@ const Header = () => {
 
   return (
     <div className="w-full h-12 bg-white flex justify-between items-center gap-4 px-4 mt-1 mb-4 shadow-sm">
-      <div className="avatar">
+      <div className="avatar w-3/12">
         <Avatar>
           <AvatarImage src="https://randomuser.me/api/portraits/women/77.jpg" alt="@shadcn" />
           <AvatarFallback>AJ</AvatarFallback>
         </Avatar>
       </div>
-      <div className="app-info flex justify-end items-center gap-4">
+      <Link href="/" className="logo w-6/12 text-center text-sm uppercase font-semibold">Dev Blog</Link>
+      <div className="app-info w-3/12 flex justify-end items-center gap-4">
         <div className="dark-light" onClick={lightDarkMode}>
           {dark ? <Sun /> : <MoonStar />}
         </div>

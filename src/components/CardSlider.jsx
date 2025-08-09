@@ -32,14 +32,14 @@ const CardSlider = ({title, size }) => {
                                 size === 'card' ? 'w-[280px] h-[180px]' : 'w-[160px] h-[250px]'
                               )}
                             >
-                              <Link href={item.catUrl}>
+                              <Link href={item.url}>
                                 <Image src={item.img} alt={item.title} className="w-full h-full object-cover"/>
                               </Link>
                               <div className="absolute bottom-2 z-10 w-full px-4 py-2">
                                   <Badge asChild>
                                       <Link href={item.catUrl}>{item.category}</Link>
                                   </Badge>
-                                  <Link href={item.catUrl} className="block text-white mt-1 text-base font-semibold line-clamp-2">
+                                  <Link href={item.url} className="block text-white mt-1 text-base font-semibold line-clamp-2">
                                       {item.title}
                                   </Link>
                               </div>

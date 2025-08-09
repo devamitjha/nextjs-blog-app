@@ -1,12 +1,11 @@
 import React from 'react';
-import Counter from '@/components/Counter';
+import AllPostCard from '@/components/AllPostCard';
 
 export default async function Category ({ params })  {
   const { slug } = await params
   return (
-    <div>
-      <h1 className="text-2xl font-bold">Category: {slug}</h1>
-      <Counter/>
+    <div className="pb-5">
+      <AllPostCard filterData={slug}/>
     </div>
   )
 }

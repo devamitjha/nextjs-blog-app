@@ -10,7 +10,7 @@ const AllAuthor = () => {
       {
         AuthorList?.map((item, i)=>{
           return(
-              <div className="author-card rounded-xl overflow-hidden" key={i}>
+              <div className="author-card rounded-xl overflow-hidden border border-gray-200" key={i}>
                 <div className="w-full overflow-hidden relative">
                     <Image src={item.bgImg} alt="author-bg" className="object-cover w-full h-auto" />
                 </div>
