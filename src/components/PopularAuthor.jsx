@@ -12,16 +12,15 @@ import AllAuthor from './AllAuthor'
 
 const PopularAuthor = ({title, dataTitle}) => { 
     const dispatch = useDispatch()
-    // ✅ Open sheet with delay
     const openSheet = (sheetName) => {
-        dispatch(switchSheet()) // close current
+        dispatch(switchSheet())
         setTimeout(() => {
-        dispatch(setSheetAfterDelay(sheetName)) // open next
+        dispatch(setSheetAfterDelay(sheetName)) 
         }, 200)
     }
-    // ✅ Close sheet
+   
     const closeSheet = () => {
-        dispatch(switchSheet()) // just sets to null
+        dispatch(switchSheet()) 
     }
   return (
     <div className="latest-posts mb-8">

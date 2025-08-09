@@ -22,6 +22,11 @@ import Economics from "@/assets/categories/economics.jpg";
 import Music from "@/assets/categories/music.jpg";
 import Fashion from "@/assets/categories/fashion.jpg";
 
+//Author
+import AuthorAvatar from "@/assets/author/avatar.webp";
+import AuthorAvatar2 from "@/assets/author/avatar2.webp";
+import ArticleBg from "@/assets/author/1.jpg";
+
 
 export const latestPostslider = [
     {
@@ -124,7 +129,6 @@ export const trendingItem = [
         url:"/category/fashion"
     } 
  ]
-
 
  export const popularPosts = [
     {
@@ -258,4 +262,86 @@ export const trendingItem = [
         url:"/category/fashion",
         img:Fashion,
     } 
+ ]
+ export const AuthorList=[
+    {
+        name:"Alex Kumar",
+        role:"Blockchain Developer",
+        type:"contributor",
+        totalPost:10,
+        avatar:AuthorAvatar,
+        bgImg:ArticleBg,
+        bio:"Alex Kumar is a blockchain developer and cryptocurrency expert with a focus on decentralized applications and smart contracts.",
+        website:"https://example.com/me",
+        verified:"no",
+        social:[
+            {
+                insta:"https://www.instagram.com/devamitjha",
+                youtube:"https://www.youtube.com/@devamitjha",
+                linkedin:"https://in.linkedin.com/devamitjha",
+                facebook:"https://www.facebook.com/devamitjha",
+                twitter:"https://x.com/devamitjha"
+            }
+        ]
+    },
+    {
+        name:"John Anderson",
+        role:"Blockchain Developer",
+        type:"contributor",
+        totalPost:15,
+        avatar:AuthorAvatar2,
+        bgImg:ArticleBg,
+        bio:"John Anderson is a tech journalist and gadget reviewer with a passion for emerging technologies.",
+        website:"https://example.com/me",
+        verified:"yes",
+        social:[
+            {
+                insta:"https://www.instagram.com/devamitjha",
+                youtube:"https://www.youtube.com/@devamitjha",
+                linkedin:"https://in.linkedin.com/devamitjha",
+                facebook:"https://www.facebook.com/devamitjha",
+                twitter:"https://x.com/devamitjha"
+            }
+        ]
+    },
+    {
+        name:"John Anderson",
+        role:"Blockchain Developer",
+        type:"contributor",
+        totalPost:15,
+        avatar:AuthorAvatar2,
+        bgImg:ArticleBg,
+        bio:"John Anderson is a tech journalist and gadget reviewer with a passion for emerging technologies.",
+        website:"https://example.com/me",
+        verified:"yes",
+        social:[
+            {
+                insta:"https://www.instagram.com/devamitjha",
+                youtube:"https://www.youtube.com/@devamitjha",
+                linkedin:"https://in.linkedin.com/devamitjha",
+                facebook:"https://www.facebook.com/devamitjha",
+                twitter:"https://x.com/devamitjha"
+            }
+        ]
+    },
+    {
+        name:"John Anderson",
+        role:"Blockchain Developer",
+        type:"contributor",
+        totalPost:15,
+        avatar:AuthorAvatar2,
+        bgImg:ArticleBg,
+        bio:"John Anderson is a tech journalist and gadget reviewer with a passion for emerging technologies.",
+        website:"https://example.com/me",
+        verified:"yes",
+        social:[
+            {
+                insta:"https://www.instagram.com/devamitjha",
+                youtube:"https://www.youtube.com/@devamitjha",
+                linkedin:"https://in.linkedin.com/devamitjha",
+                facebook:"https://www.facebook.com/devamitjha",
+                twitter:"https://x.com/devamitjha"
+            }
+        ]
+    }
  ]
