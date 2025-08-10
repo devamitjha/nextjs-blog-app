@@ -9,8 +9,10 @@ import SampleImage from "@/assets/categories/sample.webp"
 import { Badge } from "./ui/badge";
 import { StickyNote } from 'lucide-react';
 
-const AllPostCard = ({ filterData }) => {
-    const posts = useFilteredPosts({ category: filterData });
+const AllPostCard = ({ filterData, cat }) => {
+    const posts = useFilteredPosts({
+        [cat === "tag" ? "tag" : "category"]: filterData
+    });
     return (
          <div className="p-4 xl:p-0">
          <div className="w-full bg-white rounded-2xl shadow-lg mb-6 p-6 flex flex-col md:flex-row lg:items-center md:justify-between">
@@ -18,9 +20,9 @@ const AllPostCard = ({ filterData }) => {
                 <Image src={SampleImage} alt={filterData} fill priority className="object-cover aspect-1/1" />
             </div>
             <div className="flex items-start justify-start flex-col md:flex-col md:w-[calc(100%_-_190px)]">
-                <Badge className="bg-blue-50 text-blue-700">Category</Badge>
+                <Badge className="bg-blue-50 text-blue-700">{cat === "tag" ? "tag" : "category"}</Badge>
                 <h1 className="mt-2 text-2xl font-semibold lg:text-3xl capitalize my-4 text-neutral-600">
-                    {filterData}
+                    {cat === "tag" ? `#${filterData}` : filterData }
                 </h1> 
                 <p className="text-sm text-neutral-600 dark:text-neutral-300">Stay updated with the latest technology news, trends, and innovations. Explore the world of AI, blockchain, and the future of technology.</p>
                 <p className="mt-2  flex items-center gap-x-1 text-sm">
