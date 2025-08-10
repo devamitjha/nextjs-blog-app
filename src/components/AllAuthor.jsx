@@ -3,6 +3,7 @@ import Image from 'next/image';
 import AuthorBg from "@/assets/author/1.jpg";
 import AuthorImg from "@/assets/author/author.webp";
 import { AuthorList } from '@/lib/blogData';
+import Link from 'next/link';
 
 const AllAuthor = () => {
   return (
@@ -10,7 +11,7 @@ const AllAuthor = () => {
       {
         AuthorList?.map((item, i)=>{
           return(
-              <div className="author-card rounded-xl overflow-hidden border border-gray-200" key={i}>
+              <Link href={`/author/${item.slug}`} className="author-card rounded-xl overflow-hidden border border-gray-200" key={i}>
                 <div className="w-full overflow-hidden relative">
                     <Image src={item.bgImg} alt="author-bg" className="object-cover w-full h-auto" />
                 </div>
@@ -24,7 +25,7 @@ const AllAuthor = () => {
                       <p className="line-clamp-1 text-sm text-neutral-500 dark:text-neutral-400">Posts:{item.totalPost}</p>
                     </div>
                 </div>
-              </div>
+              </Link>
           )
         })
       }

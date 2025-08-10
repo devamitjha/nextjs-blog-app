@@ -266,6 +266,7 @@ export const trendingItem = [
  export const AuthorList=[
     {
         name:"Alex Kumar",
+        slug:'alex-kumar',
         role:"Blockchain Developer",
         type:"contributor",
         totalPost:10,
@@ -286,6 +287,7 @@ export const trendingItem = [
     },
     {
         name:"John Anderson",
+        slug:'john-anderson',
         role:"Blockchain Developer",
         type:"contributor",
         totalPost:15,
@@ -306,6 +308,7 @@ export const trendingItem = [
     },
     {
         name:"John Anderson",
+        slug:'john-anderson',
         role:"Blockchain Developer",
         type:"contributor",
         totalPost:15,
@@ -326,6 +329,7 @@ export const trendingItem = [
     },
     {
         name:"John Anderson",
+        slug:'john-anderson',
         role:"Blockchain Developer",
         type:"contributor",
         totalPost:15,

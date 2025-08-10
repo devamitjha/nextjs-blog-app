@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { popularPosts } from '@/lib/blogData'
+import { AuthorList } from '@/lib/blogData'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Badge } from './ui/badge'
@@ -32,18 +32,18 @@ const PopularAuthor = ({title, dataTitle}) => {
             </div>      
             <div className="w-full px-4 grid grid-cols-1 gap-4">      
                 {
-                    (popularPosts).slice(2,7).map((item, i)=>{
+                    (AuthorList).slice(0, 4).map((item, i)=>{
                         return(
-                            <div className="bg-white rounded-xl flex justify-start items-center gap-4" key={i}>
-                                <Link href={item.catUrl} className="flex-shrink-0">
-                                    <Image src={item.img} alt={item.title} width={50} height={50}  className="object-cover rounded-full w-[50px] h-[50px]"/>             
+                            <div className="bg-white rounded-xl flex justify-start items-center gap-4 w-full" key={i}>
+                                <Link href={`/author/${item.slug}`} className="flex-shrink-0">
+                                    <Image src={item.avatar} alt={item.name} width={50} height={50}  className="object-cover rounded-full w-[50px] h-[50px]"/>             
                                 </Link>
-                                <div className="flex justify-between items-center gap-4 border-b-1 border-gray-200 py-2">
-                                    <Link href={item.catUrl} className="block">
-                                        <p className="text-black mt-1 text-sm font-semibold line-clamp-1">{item.title}</p>
-                                        <div className="post-date text-gray-500 mt-1 text-sm">30 minutes ago</div>
+                                <div className="flex w-[calc(100%_-_70px)] justify-between items-center gap-4 border-b-1 border-gray-200 py-2">
+                                    <Link href={`/author/${item.slug}`} className="block">
+                                        <p className="text-black mt-1 text-sm font-semibold line-clamp-1">{item.name}</p>
+                                        <div className="post-date text-gray-500 mt-1 text-sm">{item.role}</div>
                                     </Link>
-                                    <Button size="sm">
+                                    <Button size="sm" className="self-end">
                                         <Plus />Follow
                                     </Button>
                                 </div>
