@@ -5,7 +5,6 @@ import { usePathname } from 'next/navigation'
 import {
   House,
   Layers2,
-  MessagesSquare,
   Search,
   UserRound,
   UserRoundCheck,

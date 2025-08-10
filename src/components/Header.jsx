@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { Bell, Sun, MoonStar, ShoppingCart } from 'lucide-react'
+import { Sun, MoonStar, ShoppingCart } from 'lucide-react'
 import Link from 'next/link'
 import {
   Avatar,
