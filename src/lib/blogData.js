@@ -265,14 +265,14 @@ export const trendingItem = [
  ]
  export const AuthorList=[
     {
-        name:"Alex Kumar",
-        slug:'alex-kumar',
+        name:"Manav Kapoor",
+        slug:'manav-kapoor',
         role:"Blockchain Developer",
         type:"contributor",
         totalPost:10,
         avatar:AuthorAvatar,
         bgImg:ArticleBg,
-        bio:"Alex Kumar is a blockchain developer and cryptocurrency expert with a focus on decentralized applications and smart contracts.",
+        bio:"Manav Kapoor is a blockchain developer and cryptocurrency expert with a focus on decentralized applications and smart contracts.",
         website:"https://example.com/me",
         verified:"no",
         social:[
@@ -286,14 +286,14 @@ export const trendingItem = [
         ]
     },
     {
-        name:"John Anderson",
-        slug:'john-anderson',
+        name:"Aisha Khan",
+        slug:'aisha-khan',
         role:"Blockchain Developer",
         type:"contributor",
         totalPost:15,
         avatar:AuthorAvatar2,
         bgImg:ArticleBg,
-        bio:"John Anderson is a tech journalist and gadget reviewer with a passion for emerging technologies.",
+        bio:"Aisha Khan is a tech journalist and gadget reviewer with a passion for emerging technologies.",
         website:"https://example.com/me",
         verified:"yes",
         social:[
@@ -307,14 +307,14 @@ export const trendingItem = [
         ]
     },
     {
-        name:"John Anderson",
-        slug:'john-anderson',
+        name:"Karan Reddy",
+        slug:'karan-reddy',
         role:"Blockchain Developer",
         type:"contributor",
         totalPost:15,
         avatar:AuthorAvatar2,
         bgImg:ArticleBg,
-        bio:"John Anderson is a tech journalist and gadget reviewer with a passion for emerging technologies.",
+        bio:"Karan Reddy is a tech journalist and gadget reviewer with a passion for emerging technologies.",
         website:"https://example.com/me",
         verified:"yes",
         social:[
@@ -328,14 +328,14 @@ export const trendingItem = [
         ]
     },
     {
-        name:"John Anderson",
-        slug:'john-anderson',
+        name:"Priya Sharma",
+        slug:'priya-sharma',
         role:"Blockchain Developer",
         type:"contributor",
         totalPost:15,
         avatar:AuthorAvatar2,
         bgImg:ArticleBg,
-        bio:"John Anderson is a tech journalist and gadget reviewer with a passion for emerging technologies.",
+        bio:"Priya Sharma is a tech journalist and gadget reviewer with a passion for emerging technologies.",
         website:"https://example.com/me",
         verified:"yes",
         social:[

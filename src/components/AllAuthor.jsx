@@ -1,23 +1,30 @@
+"use client";
 import React from 'react'
 import Image from 'next/image';
 import AuthorBg from "@/assets/author/1.jpg";
 import AuthorImg from "@/assets/author/author.webp";
 import { AuthorList } from '@/lib/blogData';
 import Link from 'next/link';
+import { useDispatch } from 'react-redux'
+import { switchSheet, setSheetAfterDelay } from '@/store/slices/sheetSlice'
 
 const AllAuthor = () => {
+  const dispatch = useDispatch();
+   const closeSheet = () => {
+      dispatch(switchSheet()) // sets activeSheet to null
+    }
   return (
     <div className="grid grid-cols-2 md:grid-col-3 xl:grid-col-4 gap-4">
       {
         AuthorList?.map((item, i)=>{
           return(
-              <Link href={`/author/${item.slug}`} className="author-card rounded-xl overflow-hidden border border-gray-200" key={i}>
+              <Link href={`/author/${item.slug}`} className="author-card rounded-xl overflow-hidden border border-gray-200" key={i} onClick={closeSheet}>
                 <div className="w-full overflow-hidden relative">
-                    <Image src={item.bgImg} alt="author-bg" className="object-cover w-full h-auto" />
+                    <Image src={item.bgImg} alt="author-bg" priority className="object-cover w-full h-auto" />
                 </div>
                 <div className="mx-6 -mt-8 pb-7 text-center relative z-2">
                     <span className="size-16 ring-2 ring-white inline-grid shrink-0 bg-neutral-200 align-middle rounded-full overflow-hidden">
-                      <Image src={item.avatar} className="w-16 h-16 object-cover" alt="author-name"/> 
+                      <Image src={item.avatar} priority className="w-16 h-16 object-cover" alt="author-name"/> 
                     </span>
                     <div className="mt-3 space-y-1">
                       <p className="line-clamp-1 text-base font-medium">{item.name}</p>

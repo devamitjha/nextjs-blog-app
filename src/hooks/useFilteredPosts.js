@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import POSTS from "@/lib/blog_posts.json";
 
-export function useFilteredPosts({ slug, category, tag }) {
+export function useFilteredPosts({ slug, category, tag, author }) {
   return useMemo(() => {
     let result = POSTS;
 
@@ -18,6 +18,15 @@ export function useFilteredPosts({ slug, category, tag }) {
           p.tag.map((t) => t.toLowerCase()).includes(tag.toLowerCase())
         );
       }
+      //author slug will not pass in blogDatasss
+      if (author) {
+        result = result.filter((p) => {
+          if (Array.isArray(p.author)) {
+            return p.author.map((t) => t.toLowerCase()).includes(author.toLowerCase());
+          }
+          return p.author.toLowerCase() === author.toLowerCase();
+        });
+      }
     }
 
     if (result.length === 0) {
@@ -25,5 +34,5 @@ export function useFilteredPosts({ slug, category, tag }) {
     }
 
     return result;
-  }, [slug, category, tag]);
+  }, [slug, category, tag, author]);
 }
