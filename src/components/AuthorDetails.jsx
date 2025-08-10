@@ -20,7 +20,7 @@ const AuthorDetails = ({AuthorName}) => {
     const initials = displayName.split(" ").map(word => word.charAt(0)).join("");  //Initial like AJ
     console.log(AuthorBio);
   return (
-    <div className="flex flex-col md:flex-row w-full items-center justify-center mt-8">
+    <div className="flex flex-col w-full items-center justify-center mt-8">
         {
             AuthorBio ? <div className="relative"> 
                             <Avatar className="w-30 h-30">

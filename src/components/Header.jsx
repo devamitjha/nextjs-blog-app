@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { Bell, Sun, MoonStar } from 'lucide-react'
+import { Bell, Sun, MoonStar, ShoppingCart } from 'lucide-react'
 import Link from 'next/link'
 import {
   Avatar,
@@ -37,8 +37,8 @@ const Header = () => {
         <div className="dark-light" onClick={lightDarkMode}>
           {dark ? <Sun /> : <MoonStar />}
         </div>
-        <Link href="/notification" className="relative">
-          <Bell />
+        <Link href="/shop/cart" className="relative">
+          <ShoppingCart />
           {notification >= 1 && (
             <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-black text-white flex justify-center items-center text-xs">
               5

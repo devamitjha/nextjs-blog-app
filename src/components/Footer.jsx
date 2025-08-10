@@ -8,7 +8,8 @@ import {
   MessagesSquare,
   Search,
   UserRound,
-  UserRoundCheck
+  UserRoundCheck,
+  ShoppingBasket
 } from 'lucide-react'
 import Image from 'next/image'
 import { Sheet } from 'react-modal-sheet'
@@ -73,7 +74,7 @@ export default function Footer() {
     { href: '/', icon: House },
     { icon: Layers2, onClick: () => openSheet('category') },
     { icon: user ? UserRoundCheck : UserRound, href: user ? '/profile' : undefined, onClick: user ? undefined : () => openSheet('login') },
-    { href: '/chat', icon: MessagesSquare },
+    { href: '/shop', icon: ShoppingBasket },
     { href: '/search', icon: Search }
   ]
 

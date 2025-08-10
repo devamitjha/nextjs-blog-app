@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Chat(){
+export default function Cart() {
   return (
     <div>
-      Chat
+      Cart
     </div>
   )
 }
