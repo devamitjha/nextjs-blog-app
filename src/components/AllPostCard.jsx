@@ -11,7 +11,10 @@ import { StickyNote } from 'lucide-react';
 
 const AllPostCard = ({ filterData, cat }) => {
     const posts = useFilteredPosts({
-        [cat === "tag" ? "tag" : "category"]: filterData
+        slug: undefined,
+        category: cat === "category" ? filterData : undefined,
+        tag: cat === "tag" ? filterData : undefined,
+        author: undefined
     });
     return (
          <div className="p-4 xl:p-0">

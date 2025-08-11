@@ -5,7 +5,7 @@ export default async function Category ({ params })  {
   const { slug } = await params
   return (
     <div className="pb-5">
-      <AllPostCard filterData={slug}/>
+      <AllPostCard filterData={slug} cat="category"/>
     </div>
   )
 }

@@ -14,9 +14,12 @@ export function useFilteredPosts({ slug, category, tag, author }) {
         );
       }
       if (tag) {
-        result = result.filter((p) =>
-          p.tag.map((t) => t.toLowerCase()).includes(tag.toLowerCase())
-        );
+        result = result.filter((p) => {
+          if (Array.isArray(p.tag)) {
+            return p.tag.some((t) => t.toLowerCase() === tag.toLowerCase());
+          }
+          return String(p.tag).toLowerCase() === tag.toLowerCase();
+        });
       }
       //author slug will not pass in blogDatasss
       if (author) {

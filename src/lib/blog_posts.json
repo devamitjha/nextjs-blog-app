@@ -4,7 +4,7 @@
     "author": "Manav Kapoor",
     "date": "2025-03-27T00:00:00Z",
     "tag": [
-      "nextjs",
+      "Technology",
       "football"
     ],
     "title": "Technology Post 1",
@@ -110,26 +110,26 @@
     "short_description": "Short description for Technology Post 5."
   },
   {
-    "category": "Technology",
+    "category": "Health",
     "author": "Rohit Mehra",
     "date": "2025-12-15T00:00:00Z",
     "tag": [
       "innovation",
       "inflation"
     ],
-    "title": "Technology Post 6",
-    "body": "Technology Post 6 detailed content goes here. This is a sample article about technology...",
-    "slug": "technology-post-6",
+    "title": "Health Post 1",
+    "body": "Health Post 6 detailed content goes here. This is a sample article about health...",
+    "slug": "health-post-1",
     "views": 15677,
     "likes": 435,
     "comment": [
       {
         "name": "User56",
         "date": "2025-10-09T00:00:00Z",
-        "content": "Comment on Technology Post 6"
+        "content": "Comment on health Post 1"
       }
     ],
-    "short_description": "Short description for Technology Post 6."
+    "short_description": "Short description for Health Post 1."
   },
   {
     "category": "Science",
@@ -928,8 +928,8 @@
     "author": "Rahul Sen",
     "date": "2025-04-21T00:00:00Z",
     "tag": [
-      "crypto",
-      "fashion"
+      "health",
+      "food"
     ],
     "title": "Food Post 1",
     "body": "Food Post 1 detailed content goes here. This is a sample article about food...",
