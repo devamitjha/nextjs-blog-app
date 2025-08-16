@@ -2,14 +2,26 @@ import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true }, // hashed password
-    avatar: { type: String }, // image filename or URL
-    posts: { type: Number, default: 0 }, // count of user's posts
+    name: { type: String, required: true }, 
+    slug: { type: String, required: true, unique: true }, 
+    role: { type: String, required: true },
+    type: { type: String, enum: ["contributor", "admin", "editor"], default: "contributor" },
+    totalPost: { type: Number, default: 0 }, 
+    avatar: { type: String }, 
+    bgImg: { type: String }, 
+    bio: { type: String }, 
+    website: { type: String }, 
+    verified: { type: String, enum: ["yes", "no"], default: "no" }, 
+    social: {
+      insta: { type: String },
+      youtube: { type: String },
+      linkedin: { type: String },
+      facebook: { type: String },
+      twitter: { type: String },
+    },
   },
   {
-    timestamps: true // adds createdAt & updatedAt automatically
+    timestamps: true 
   }
 );
 

@@ -4,11 +4,12 @@ const CategorySchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
     slug: { type: String, required: true, unique: true },
-    postImage: { type: String},
-    posts: { type: Number, default: 0 }, // stores count of posts
+    catImage: { type: String},
+    posts: { type: Number, default: 0 }, 
+    url: { type: String},
   },
   {
-    timestamps: true // creates createdAt & updatedAt
+    timestamps: true 
   }
 );
 

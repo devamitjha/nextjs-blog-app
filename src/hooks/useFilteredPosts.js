@@ -1,17 +1,29 @@
 import { useMemo } from "react";
 import POSTS from "@/lib/blog_posts.json";
+import useSWR from "swr";
 
 export function useFilteredPosts({ slug, category, tag, author }) {
+  const fetcher = (url) => fetch(url).then((res) => res.json());
+  const { data, error } = useSWR("/api/posts", fetcher);
+ 
+
   return useMemo(() => {
-    let result = POSTS;
+    if (!data) return []; // return empty while loading
+    if (error) return []; // or handle error differently
+    let result = data;
+
+    //let result = POSTS;
 
     if (slug) {
       result = result.filter((p) => p.slug === slug);
     } else {
       if (category) {
         result = result.filter(
-          (p) => p.category.toLowerCase() === category.toLowerCase()
+          (p) => p.category?.slug?.toLowerCase() === category.toLowerCase() ||
+                 p.category?.name?.toLowerCase() === category.toLowerCase()
         );
+        console.log(result);
+        console.log(result);
       }
       if (tag) {
         result = result.filter((p) => {
@@ -19,23 +31,22 @@ export function useFilteredPosts({ slug, category, tag, author }) {
             return p.tag.some((t) => t.toLowerCase() === tag.toLowerCase());
           }
           return String(p.tag).toLowerCase() === tag.toLowerCase();
-        });
+        });       
       }
       //author slug will not pass in blogDatasss
       if (author) {
-        result = result.filter((p) => {
-          if (Array.isArray(p.author)) {
-            return p.author.map((t) => t.toLowerCase()).includes(author.toLowerCase());
-          }
-          return p.author.toLowerCase() === author.toLowerCase();
-        });
+        result = result.filter(
+          (p) =>
+            p.author?.name?.toLowerCase() === author.toLowerCase() ||
+            p.author?._id?.toLowerCase() === author.toLowerCase()
+        );
       }
     }
 
     if (result.length === 0) {
-      return POSTS;
+      return data;
     }
 
     return result;
-  }, [slug, category, tag, author]);
+  }, [data, error, slug, category, tag, author]);
 }

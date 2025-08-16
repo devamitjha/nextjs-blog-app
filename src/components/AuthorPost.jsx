@@ -65,11 +65,11 @@ const AuthorPost = ({AuthorPost}) => {
         {
             
             AuthorPost.map((item, i)=>{
-                const authorSlug = item.category.toLowerCase().replace(/\s+/g, '-');
+                const authorSlug = item.category.slug.toLowerCase().replace(/\s+/g, '-');
             return(
                 <div className="shadow-lg bg-white rounded-xl flex justify-between items-center gap-4 p-4" key={i}>
                 <div>
-                    <Link href={`/category/${authorSlug}`} className="text-gray-500  text-sm">{item.category}</Link>
+                    <Link href={`/category/${authorSlug}`} className="text-gray-500  text-sm">{item.category.name}</Link>
                     <Link href={`/post/${item.slug}`} className="block text-black mt-1 text-sm font-semibold line-clamp-2">
                         {item.title}
                     </Link>
