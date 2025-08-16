@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import POSTS from "@/lib/blog_posts.json";
 import useSWR from "swr";
 
 export function useFilteredPosts({ slug, category, tag, author }) {

@@ -3,6 +3,7 @@ import React from 'react'
 import { AuthorList } from '@/lib/blogData';
 import { useFilteredPosts } from "@/hooks/useFilteredPosts";
 import AuthorPost from './AuthorPost';
+import useSWR from "swr";
 import {
   Avatar,
   AvatarFallback,
@@ -14,11 +15,24 @@ import { Facebook, Instagram, Twitter, TwitterIcon, YoutubeIcon } from 'lucide-r
 import { Button } from "@/components/ui/button"
 
 const AuthorDetails = ({AuthorName}) => {
+    const fetcher = (url) => fetch(url).then((res) => res.json());
+
+    const { data, error } = useSWR(
+        AuthorName ? `/api/authors/${AuthorName}` : null,
+        fetcher
+    );
+
+    if (!data) return <p>Loading...</p>;
+    if (error) return <p>Error loading author</p>;
+    if (data.message) return <p>{data.message}</p>; // handle 404 or other messages
+
+    const author = data;
+   
+
     const displayName = AuthorName.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");//Convert name like Amit Jha
     const AuthorBio = AuthorList.filter((item) => item.slug === AuthorName)[0]; // For Author Bio
     const posts = useFilteredPosts({ author: displayName }); // Aor Author Posts
     const initials = displayName.split(" ").map(word => word.charAt(0)).join("");  //Initial like AJ
-    console.log(AuthorBio);
   return (
     <div className="flex flex-col w-full items-center justify-center mt-8">
         {
