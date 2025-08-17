@@ -8,7 +8,6 @@ export const GET = async (request, { params }) => {
 
   try {
     await connectDB();
-    console.log("coooncted");
     const user = await User.findOne({ slug }); // findOne by slug
     if (!user) {
       return new NextResponse(JSON.stringify({ message: "User not found" }), { status: 404 });
