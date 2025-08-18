@@ -1,15 +1,21 @@
 "use client";
-import Sidebar from "@/components/admin/Sidebar";
-import Navbar from "@/components/admin/Navbar";
+import { SiteHeader } from "@/components/admin/site-header"
+import { AppSidebar } from "@/components/admin/app-sidebar"
+import {
+  SidebarInset,
+  SidebarProvider,
+} from "@/components/ui/sidebar"
 
 export default function AdminLayout({ children }) {
   return (
-    <div className="flex min-h-screen">
-      <Sidebar />
-      <div className="flex-1 flex flex-col">
-        <Navbar />
-        <main className="p-6 bg-gray-100 flex-1">{children}</main>
-      </div>
-    </div>
+    <SidebarProvider>
+      <AppSidebar />
+       <SidebarInset>
+        <SiteHeader />    
+        <div className="flex flex-1 flex-col gap-4 p-4">
+          {children}
+        </div>
+        </SidebarInset>
+    </SidebarProvider>
   );
 }
