@@ -43,15 +43,15 @@ const data = {
         },
         {
           title: "Add New Post",
-          url: "#",
+          url: "/admin/add-post",
         },
         {
           title: "Categories",
-          url: "#",
+          url: "/admin/categories",
         },
         {
           title: "Tags",
-          url: "#",
+          url: "/admin/tags",
         },
       ],
     },
@@ -62,12 +62,8 @@ const data = {
       items: [
         {
           title: "Media Library",
-          url: "#",
-        },
-        {
-          title: "Upload",
-          url: "#",
-        },
+          url: "/admin/media",
+        }
       ],
     },
     {
@@ -77,7 +73,7 @@ const data = {
       items: [
         {
           title: "Manage Comments (Approve/Reject/Spam)",
-          url: "#",
+          url: "/admin/comments",
         }
       ],
     },
@@ -92,11 +88,7 @@ const data = {
         },
         {
           title: "Add New User",
-          url: "#",
-        },
-        {
-          title: "Roles & Permissions",
-          url: "#",
+          url: "/admin/add-user",
         }
       ],
     },
@@ -107,15 +99,15 @@ const data = {
       items: [
         {
           title: "Edit Profile",
-          url: "#",
+          url: "/admin/profile",
         },
         {
           title: "Change Password",
-          url: "#",
+          url: "/admin/change-password",
         },
         {
           title: "Logout",
-          url: "#",
+          url: "/admin/logout",
         }
       ],
     },

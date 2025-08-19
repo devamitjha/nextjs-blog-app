@@ -141,3 +141,6 @@
       z-index: 2;
     }
   }
+  .ql-container.ql-snow{
+    height:300px;
+  }
