@@ -26,7 +26,7 @@ const tableData = [
       ],
     },
     budget: "3.9K",
-    status: "Active",
+    status: "Approved",
   },
   {
     id: 2,
@@ -54,7 +54,7 @@ const tableData = [
       images: ["/images/user/user-27.jpg"],
     },
     budget: "12.7K",
-    status: "Active",
+    status: "Approved",
   },
   {
     id: 4,
@@ -90,7 +90,7 @@ const tableData = [
       ],
     },
     budget: "4.5K",
-    status: "Active",
+    status: "Approved",
   },
   {
     id: 6,
@@ -108,7 +108,7 @@ const tableData = [
       ],
     },
     budget: "4.5K",
-    status: "Active",
+    status: "Approved",
   },
   {
     id: 7,
@@ -126,7 +126,7 @@ const tableData = [
       ],
     },
     budget: "4.5K",
-    status: "Active",
+    status: "Approved",
   },
 ];
 
@@ -134,34 +134,24 @@ export default function AllPosts() {
   return (
     <div className="overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-white/[0.05] dark:bg-white/[0.03]">
       <div className="max-w-full overflow-x-auto">
-        <div className="min-w-[1102px]">
+        <div className="w-full 2xl:min-w-[1102px]">
           <Table>
             {/* Table Header */}
             <TableHeader className="border-b border-gray-100 dark:border-white/[0.05]">
               <TableRow>
-                <TableCell                  
-                  className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
-                >
+                <TableCell className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400">
                   Post
                 </TableCell>
-                <TableCell                  
-                  className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
-                >
-                  Stats
-                </TableCell>
-                <TableCell                  
-                  className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
-                >
+                <TableCell className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400">
                   Status
                 </TableCell>
-                <TableCell                  
-                  className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
-                >
-                  Date created
+                <TableCell className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400">
+                  Author
+                </TableCell>                
+                <TableCell className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400">
+                  Category
                 </TableCell>
-                <TableCell                  
-                  className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
-                >
+                <TableCell className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400">
                   Action
                 </TableCell>
               </TableRow>
@@ -186,13 +176,24 @@ export default function AllPosts() {
                           {order.user.name}
                         </span>
                         <span className="block text-gray-500 text-theme-xs dark:text-gray-400">
-                          {order.user.role}
+                          18-08-2025
                         </span>
                       </div>
                     </div>
                   </TableCell>
                   <TableCell className="px-4 py-3 text-gray-500 text-start text-theme-sm dark:text-gray-400">
-                    {order.projectName}
+                    <Badge
+                      size="sm"
+                      className={
+                        order.status === "Approved"
+                          ? "bg-green-600 text-white cursor-pointer"
+                          : order.status === "Pending"
+                          ? "bg-red-500 text-white cursor-pointer"
+                          : "disabled bg-gray-300 text-gray-500"
+                      }
+                    >
+                      {order.status}
+                    </Badge>
                   </TableCell>
                   <TableCell className="px-4 py-3 text-gray-500 text-start text-theme-sm dark:text-gray-400">
                     <div className="flex -space-x-2">
@@ -215,19 +216,26 @@ export default function AllPosts() {
                   <TableCell className="px-4 py-3 text-gray-500 text-start text-theme-sm dark:text-gray-400">
                     <Badge
                       size="sm"
-                      color={
-                        order.status === "Active"
-                          ? "success"
-                          : order.status === "Pending"
-                          ? "warning"
-                          : "error"
-                      }
+                      variant="secondary"
                     >
-                      {order.status}
+                      Technology
                     </Badge>
                   </TableCell>
                   <TableCell className="px-4 py-3 text-gray-500 text-theme-sm dark:text-gray-400">
-                    {order.budget}
+                    <Badge
+                      size="sm"
+                      variant="secondary"
+                      className="bg-blue-500 text-white dark:bg-blue-600 me-4 cursor-pointer"
+                    >
+                      Edit
+                    </Badge>
+                    <Badge
+                      size="sm"
+                      variant="destructive"
+                      className="cursor-pointer"
+                    >
+                      Delete
+                    </Badge>
                   </TableCell>
                 </TableRow>
               ))}
