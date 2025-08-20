@@ -112,6 +112,6 @@ export const POST = async (request) => {
 
   } catch (err) {
     console.error(err);
-    return new NextResponse("Post Not Created", { status: 500 });
+    return NextResponse.json({ error: "Post Not Created" }, { status: 500 });
   } 
 }
