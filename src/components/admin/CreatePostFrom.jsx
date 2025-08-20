@@ -95,10 +95,32 @@ export function CreatePostForm() {
     const values = form.getValues()
     dispatch(setFormData(values))
   }
-
+const author="Amit Jha";
   // Submit → dispatch + reset
-  function onSubmit(data) {
-    console.log("Form submitted:", data)
+  async function onSubmit(data) {
+    const formData = new FormData()
+    formData.append("title", data.title)
+    formData.append("shortDesc", data.shortDesc)
+    formData.append("description", data.description)
+    formData.append("tags", data.tags)
+    formData.append("category", data.category)
+    formData.append("author", author)
+
+    if (data.image) {
+      formData.append("image", data.image)
+    }
+
+    const res = await fetch("/api/posts", {
+      method: "POST",
+      body: formData,
+    })
+
+    if (!res.ok) {
+      const err = await res.json()
+      throw new Error(err.error || "Failed to create post")
+    }
+    const result = await res.json()
+    console.log("✅ Post created:", result)
     dispatch(resetForm()) // also push to Redux if needed
 
     // reset form fields

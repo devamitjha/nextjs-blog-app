@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/table"
 import Image from "next/image";
 import { Badge } from "../ui/badge";
+import ApproveButton from "./ApproveButton";
 
 const tableData = [
   {
@@ -26,7 +27,7 @@ const tableData = [
       ],
     },
     budget: "3.9K",
-    status: "Approved",
+    status: "Pending",
   },
   {
     id: 2,
@@ -54,7 +55,7 @@ const tableData = [
       images: ["/images/user/user-27.jpg"],
     },
     budget: "12.7K",
-    status: "Approved",
+    status: "Pending",
   },
   {
     id: 4,
@@ -90,7 +91,7 @@ const tableData = [
       ],
     },
     budget: "4.5K",
-    status: "Approved",
+    status: "Pending",
   },
   {
     id: 6,
@@ -108,7 +109,7 @@ const tableData = [
       ],
     },
     budget: "4.5K",
-    status: "Approved",
+    status: "Pending",
   },
   {
     id: 7,
@@ -182,18 +183,7 @@ export default function AllPosts() {
                     </div>
                   </TableCell>
                   <TableCell className="px-4 py-3 text-gray-500 text-start text-theme-sm dark:text-gray-400">
-                    <Badge
-                      size="sm"
-                      className={
-                        order.status === "Approved"
-                          ? "bg-green-600 text-white cursor-pointer"
-                          : order.status === "Pending"
-                          ? "bg-red-500 text-white cursor-pointer"
-                          : "disabled bg-gray-300 text-gray-500"
-                      }
-                    >
-                      {order.status}
-                    </Badge>
+                    <ApproveButton postId={order.id} orderStatus={order.status}/>                    
                   </TableCell>
                   <TableCell className="px-4 py-3 text-gray-500 text-start text-theme-sm dark:text-gray-400">
                     <div className="flex -space-x-2">

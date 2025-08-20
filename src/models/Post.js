@@ -10,10 +10,12 @@ const postSchema = new Schema(
     shortDescription: { type: String, required: true },
     description: { type: String, required: true },
     author: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
-    postImage: { type: String, required: true },
+    postImage: { type: mongoose.Schema.Types.ObjectId, ref: "Media", required: true },
+    status: { type: String, enum: ["pending", "published"], default: "pending" },
     tags: [{ type: String }], 
     views: { type: Number, default: 0 },
     likes: { type: Number, default: 0 },
+    comment: { type: mongoose.Schema.Types.ObjectId, ref: "Comment"},
   },
   { timestamps: true }
 );
