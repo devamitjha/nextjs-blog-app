@@ -5,11 +5,8 @@ import User from "@/models/User";
 import Category from "@/models/Category";
 import Comment from "@/models/Comment";
 import Media from "@/models/Media";
-import { upload } from "@/lib/upload";
-import { promisify } from "util";
+import { imagekit } from "@/lib/imagekit";
 
-// Convert multer middleware into a promise so it works in App Router
-const uploadMiddleware = promisify(upload.single("image"));
 
 export const GET = async (request) => {
   try {
@@ -17,7 +14,7 @@ export const GET = async (request) => {
     const posts = await Post.find()
         .populate("postImage", "url")
         .populate("author", "name email avatar")
-        .populate("category", "name slug")
+        .populate("category", "name slug catImage url")
         .populate("comment", "text status author");  
     return new NextResponse(JSON.stringify(posts), { status: 200 });
   } catch (err) {
@@ -49,18 +46,20 @@ export const POST = async (request) => {
       return NextResponse.json({ error: "All fields are required" }, { status: 400 });
     }
 
-    // ✅ Save uploaded image
+   // ✅ Upload image to ImageKit
     const buffer = Buffer.from(await imageFile.arrayBuffer());
     const fileName = Date.now() + "-" + imageFile.name.replace(/\s+/g, "-");
-    const filePath = `public/uploads/${fileName}`;
-    const fs = require("fs");
-    fs.writeFileSync(filePath, buffer);
 
-    const imageUrl = `/uploads/${fileName}`;
-    // ✅ Create Media document first
+    const uploadResponse = await imagekit.upload({
+      file: buffer,          // binary data
+      fileName: fileName,    // image name
+      folder: "/nextjs/blog", // optional folder in ImageKit
+    });
+
+    // ✅ Create Media document
     const media = new Media({
       filename: fileName,
-      url: imageUrl,
+      url: uploadResponse.url,
       mimetype: imageFile.type,
       size: imageFile.size,
     });

@@ -242,14 +242,16 @@ const author="Amit Jha";
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="Technology">Technology</SelectItem>
-                  <SelectItem value="Science">Science</SelectItem>
-                  <SelectItem value="Music">Music</SelectItem>
-                  <SelectItem value="Travel">Travel</SelectItem>
-                  <SelectItem value="Sports">Sports</SelectItem>
-                  <SelectItem value="Politics">Politics</SelectItem>
-                  <SelectItem value="Economics">Economics</SelectItem>
-                  <SelectItem value="Fashion">Fashion</SelectItem>
+                  <SelectItem value="Cryptocurrency">Cryptocurrency</SelectItem>
+                  <SelectItem value="Forex & Currency Markets">Forex & Currency Markets</SelectItem>
+                  <SelectItem value="Commodities & Metals">Commodities & Metals</SelectItem>
+                  <SelectItem value="Artificial Intelligence">Artificial Intelligence</SelectItem>
+                  <SelectItem value="Blockchain & Web3">Blockchain & Web3</SelectItem>
+                  <SelectItem value="Fintech Innovations">Fintech Innovations</SelectItem>
+                  <SelectItem value="Tech Trends">Tech Trends</SelectItem>
+                  <SelectItem value="World Politics">World Politics</SelectItem>
+                  <SelectItem value="Geopolitics & Economy">Geopolitics & Economy</SelectItem>
+                  <SelectItem value="Policy & Regulation">Policy & Regulation</SelectItem>
                 </SelectContent>
               </Select>
               <FormMessage />

@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, {useEffect} from "react";
 import Link from "next/link";
 import BlogImage from "@/assets/posts/sample.webp";
 import AuthorAvatar from "@/assets/posts/avatar.webp";
@@ -8,32 +8,68 @@ import { useFilteredPosts } from "@/hooks/useFilteredPosts";
 import SampleImage from "@/assets/categories/sample.webp"
 import { Badge } from "./ui/badge";
 import { StickyNote } from 'lucide-react';
+import useSWR from "swr";
+import { useSelector, useDispatch } from "react-redux";
+import { setCategories } from "@/store/slices/categorySlice";
 
 const AllPostCard = ({ filterData, cat }) => { 
+    const { categories } = useSelector((state) => state.category);
+    const dispatch = useDispatch();
+
+    // SWR fetcher
+    const fetcher = (url) => fetch(url).then((res) => res.json());
+
+    // Call SWR always at top-level
+    const { data, error } = useSWR("/api/categories", fetcher, {
+        dedupingInterval: 24 * 60 * 60 * 1000, // 24 hours
+        revalidateIfStale: false,
+        revalidateOnFocus: false,
+        revalidateOnReconnect: false,
+        keepPreviousData: true,
+    });
+
+    // Sync Redux and local state once data is fetched
+    useEffect(() => {
+        if (data && categories.length === 0) {
+            dispatch(setCategories(data));
+        }
+    }, [data, categories.length, dispatch]);
+
     const posts = useFilteredPosts({
         slug: undefined,
         category: cat === "category" ? filterData : undefined,
         tag: cat === "tag" ? filterData : undefined,
-        author: undefined
+        author: undefined,
     });
+    console.log(categories);
+    const filteredCategories = categories.filter(
+        (category) => category.name.toLowerCase() === filterData.toLowerCase() 
+        || category.slug.toLowerCase() === filterData.toLowerCase()
+    );
+    console.log(filteredCategories);
     return (
          <div className="p-4 xl:p-0">
-         <div className="w-full bg-white rounded-2xl shadow-lg mb-6 p-6 flex flex-col md:flex-row lg:items-center md:justify-between">
-            <div className="placeholder w-[130px] h-[130px] relative rotate-12 shadow-2xl rounded-2xl overflow-hidden ring-4 ring-white inline-grid bg-neutral-200 align-middle mb-8 ml-3 md:ml-4">
-                <Image src={SampleImage} alt={filterData} fill priority className="object-cover aspect-1/1" />
-            </div>
-            <div className="flex items-start justify-start flex-col md:flex-col md:w-[calc(100%_-_190px)]">
-                <Badge className="bg-blue-50 text-blue-700">{cat === "tag" ? "tag" : "category"}</Badge>
-                <h1 className="mt-2 text-2xl font-semibold lg:text-3xl capitalize my-4 text-neutral-600">
-                    {cat === "tag" ? `#${filterData}` : filterData }
-                </h1> 
-                <p className="text-sm text-neutral-600 dark:text-neutral-300">Stay updated with the latest technology news, trends, and innovations. Explore the world of AI, blockchain, and the future of technology.</p>
-                <p className="mt-2  flex items-center gap-x-1 text-sm">
-                    <StickyNote size={14} />
-                    <span>{posts.length} articles</span>
-                </p>
-            </div>
-         </div>
+            {
+                filteredCategories.map((item)=>(
+                    <div className="w-full bg-white rounded-2xl shadow-lg mb-6 p-6 flex flex-col md:flex-row lg:items-center md:justify-between" key={item._id}>
+                        <div className="placeholder w-[130px] h-[130px] relative rotate-12 shadow-2xl rounded-2xl overflow-hidden ring-4 ring-white inline-grid bg-neutral-200 align-middle mb-8 ml-3 md:ml-4">
+                            <Image src={item.catImage} alt={item.name} fill priority className="object-cover aspect-1/1" />
+                        </div>
+                        <div className="flex items-start justify-start flex-col md:flex-col md:w-[calc(100%_-_190px)]">
+                            <Badge className="bg-blue-50 text-blue-700">{cat === "tag" ? "tag" : "category"}</Badge>
+                            <h1 className="mt-2 text-2xl font-semibold lg:text-3xl capitalize my-4 text-neutral-600">
+                                {cat === "tag" ? `#${filterData}` : item.name }
+                            </h1> 
+                            <p className="text-sm text-neutral-600 dark:text-neutral-300">{item.shortDescription}</p>
+                            <p className="mt-2  flex items-center gap-x-1 text-sm">
+                                <StickyNote size={14} />
+                                <span>{item.posts} articles</span>
+                            </p>
+                        </div>
+                    </div>
+                ))
+            }
+            
                 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {posts?.map((post) => {

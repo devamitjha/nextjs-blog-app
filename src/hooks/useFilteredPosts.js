@@ -3,7 +3,7 @@ import useSWR from "swr";
 
 export function useFilteredPosts({ slug, category, tag, author }) {
   const fetcher = (url) => fetch(url).then((res) => res.json());
-  const { data, error } = useSWR("/api/posts", fetcher);
+  const { data, error } = useSWR("/api/posts", fetcher); 
  
 
   return useMemo(() => {
