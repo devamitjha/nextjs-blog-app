@@ -14,7 +14,8 @@ export function useFilteredPosts({ slug, category, tag, author }) {
     //let result = POSTS;
 
     if (slug) {
-      result = result.filter((p) => p.slug === slug);
+      result = result.filter((p) => p.slug?.toLowerCase() === slug.toLowerCase());
+      return result.length > 0 ? result[0] : null;
     } else {
       if (category) {
         result = result.filter(

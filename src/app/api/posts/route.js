@@ -13,7 +13,7 @@ export const GET = async (request) => {
     await connectDB();
     const posts = await Post.find()
         .populate("postImage", "url")
-        .populate("author", "name email avatar")
+        .populate("author", "name email avatar role verified")
         .populate("category", "name slug catImage url")
         .populate("comment", "text status author");  
     return new NextResponse(JSON.stringify(posts), { status: 200 });
@@ -66,7 +66,11 @@ export const POST = async (request) => {
     //await media.save();
     
     // ✅ Generate slug
-    const slug = title.toLowerCase().replace(/ /g, "-");
+    const slug = title.toLowerCase()
+    .replace(/[^\w\s-]/g, '')   // remove all special chars except spaces & dashes
+    .replace(/\s+/g, '-')       // replace spaces with -
+    .replace(/-+/g, '-')        // collapse multiple - into one
+    .trim();
     const existingPost = await Post.findOne({ slug });
     if (existingPost) {
       return NextResponse.json({ error: "Post with this title already exists" }, { status: 400 });

@@ -41,12 +41,10 @@ const AllPostCard = ({ filterData, cat }) => {
         tag: cat === "tag" ? filterData : undefined,
         author: undefined,
     });
-    console.log(categories);
     const filteredCategories = categories.filter(
         (category) => category.name.toLowerCase() === filterData.toLowerCase() 
         || category.slug.toLowerCase() === filterData.toLowerCase()
     );
-    console.log(filteredCategories);
     return (
          <div className="p-4 xl:p-0">
             {
@@ -73,12 +71,12 @@ const AllPostCard = ({ filterData, cat }) => {
                 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {posts?.map((post) => {
-                    const postUrl = post.title.toLowerCase().replace(/\s+/g, '-');
+                    const postUrl = post.slug.toLowerCase().replace(/\s+/g, '-').replace(/'/g, ''); ;
                     const authorSlug = post.author.name.toLowerCase().replace(/\s+/g, '-');
                     return(
                         <article key={post._id} className="border rounded-2xl shadow-sm hover:shadow-lg transition overflow-hidden">
                             <Link href={`/post/${postUrl}`} className="flex post-thumbnail w-full h-[280px] md:h-[250px] 2xl:h-[350px] relative">
-                                <Image src={BlogImage} alt={post.title} fill priority className="object-cover"/>
+                                <Image src={post.category.catImage} alt={post.title} fill priority className="object-cover"/>
                             </Link>
                             <div className="post-into p-4 flex flex-col gap-4">
                                 <div className="post-author flex justify-start items-center gap-2">
