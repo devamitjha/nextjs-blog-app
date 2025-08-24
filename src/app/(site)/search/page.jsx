@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input"
 
 export default function SearchPage (){
   return (
-    <div className="search">
+    <div className="search mb-25">
         <div className="px-4 mb-4">
           <h3 className="text-xl font-semibold tracking-tight text-pretty text-neutral-950 mb-4">Search</h3>
           <div className="search-input relative">

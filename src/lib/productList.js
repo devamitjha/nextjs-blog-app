@@ -10,9 +10,9 @@
     sizes: ["s", "m", "l", "xl", "xxl"],
     colors: ["gray", "purple", "green"],
     images: {
-      gray: "/assets/products/1g.png",
-      purple: "/assets/products/1p.png",
-      green: "/assets/products/1gr.png",
+      gray: "/products/adidas-gray.png",
+      purple: "/products/adidas-purple.png",
+      green: "/products/adidas-green.png",
     },
   },
   {
@@ -25,7 +25,7 @@
     price: 59.9,
     sizes: ["s", "m", "l", "xl"],
     colors: ["gray", "green"],
-    images: { gray: "/assets/products/2g.png", green: "/assets/products/2gr.png" },
+    images: { gray: "/products/puma-gray.png", green: "/products/puma-green.png" },
   },
   {
     id: 3,
@@ -38,9 +38,9 @@
     sizes: ["s", "m", "l"],
     colors: ["green", "blue", "black"],
     images: {
-      green: "/assets/products/3gr.png",
-      blue: "/assets/products/3b.png",
-      black: "/assets/products/3bl.png",
+      green: "/products/nike-green.png",
+      blue: "/products/nike-blue.png",
+      black: "/products/nike-black.png",
     },
   },
   {
@@ -53,7 +53,7 @@
     price: 29.9,
     sizes: ["s", "m", "l"],
     colors: ["white", "pink"],
-    images: { white: "/assets/products/4w.png", pink: "/assets/products/4p.png" },
+    images: { white: "/products/nike-dri-white.png", pink: "/products/nike-dri-pink.png" },
   },
   {
     id: 5,
@@ -66,9 +66,9 @@
     sizes: ["s", "m", "l"],
     colors: ["red", "orange", "black"],
     images: {
-      red: "/assets/products/5r.png",
-      orange: "/assets/products/5o.png",
-      black: "/assets/products/5bl.png",
+      red: "/products/storm-fleece-red.png",
+      orange: "/products/storm-fleece-orange.png",
+      black: "/products/storm-fleece-black.png",
     },
   },
   {
@@ -81,7 +81,7 @@
     price: 59.9,
     sizes: ["40", "42", "43", "44"],
     colors: ["gray", "white"],
-    images: { gray: "/assets/products/6g.png", white: "/assets/products/6w.png" },
+    images: { gray: "/products/nike-air-max-gray.png", white: "/products/nike-air-max-white.png" },
   },
   {
     id: 7,
@@ -93,11 +93,11 @@
     price: 69.9,
     sizes: ["40", "42", "43"],
     colors: ["gray", "pink"],
-    images: { gray: "/assets/products/7g.png", pink: "/assets/products/7p.png" },
+    images: { gray: "/products/nike-ultraboost-gray.png", pink: "/products/nike-ultraboost-pink.png" },
   },
   {
     id: 8,
-    name: "Levi’s Classic Denim",
+    name: "Levi's Classic Denim",
     shortDescription:
       "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",
     description:
@@ -105,6 +105,6 @@
     price: 59.9,
     sizes: ["s", "m", "l"],
     colors: ["blue", "green"],
-    images: { blue: "/assets/products/8b.png", green: "/assets/products/8gr.png" },
+    images: { blue: "/products/levis-blue.png", green: "/products/levis-green.png" },
   },
 ];

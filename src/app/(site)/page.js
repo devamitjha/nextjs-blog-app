@@ -8,7 +8,7 @@ import AllCategories from "@/components/AllCategories";
 
 export default function Home() {
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full mb-25">
       <CardSlider title="Latest Posts" subTitle="Explore the altest articles" size="sticker" additionalClass="text-2xl"/>
       <PopularPosts title="Popular Posts" subTitle="Explore the altest articles"/>
       <HorizontalSlider title="Trending Topics" subTitle="Explore the most viewed articles"/>
