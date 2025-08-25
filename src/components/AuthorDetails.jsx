@@ -18,6 +18,7 @@ const AuthorDetails = ({AuthorName}) => {
 
     const fetcher = (url) => fetch(url).then((res) => res.json());
     const { data, error } = useSWR(`/api/author/${AuthorName}`, fetcher);
+    const authorId = data?._id;
 
     const posts = useFilteredPosts({ author: data?.name });
     
@@ -67,7 +68,7 @@ const AuthorDetails = ({AuthorName}) => {
                             </div>            
                         </>
                     }
-                    <AuthorPost AuthorPost={posts}/>
+                    <AuthorPost AuthorPostID={authorId}/>
        
     </div>
   )

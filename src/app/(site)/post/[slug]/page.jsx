@@ -6,7 +6,7 @@ export default async function SinglePostPage ({ params })  {
   const { slug } = await params
   return (
     <div className="blog-post mb-25">
-      <SinglePost filterData={slug}/>
+      <SinglePost postBySlug={slug}/>
     </div>
   )
 }

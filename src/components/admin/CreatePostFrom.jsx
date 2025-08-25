@@ -26,6 +26,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Input } from "@/components/ui/input"
+import { toast } from "react-toastify"
 
 const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false })
 
@@ -120,7 +121,7 @@ const author="Amit Jha";
       throw new Error(err.error || "Failed to create post")
     }
     const result = await res.json()
-    console.log("✅ Post created:", result)
+    toast.success("Post created successfully!")
     dispatch(resetForm()) // also push to Redux if needed
 
     // reset form fields

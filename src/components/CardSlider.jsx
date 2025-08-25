@@ -9,7 +9,7 @@ import Image from 'next/image';
 import { Badge } from "@/components/ui/badge"
 import clsx from 'clsx'
 
-const CardSlider = ({title, size }) => {   
+const CardSlider = ({title, size, data }) => {  
       return (
         <div className="CardSlider autoSlider mb-8">
           <div className="title-container mb-4 px-4">
@@ -23,7 +23,7 @@ const CardSlider = ({title, size }) => {
                 className="slider"
               >
                 {
-                  (size === 'card' ? latestPostslider.slice(0, 3) : latestPostslider.slice(4, 8)).map((item, i)=>{
+                  data?.map((item, i)=>{
                       return(
                          <SwiperSlide key={i}>
                             <div 
@@ -32,15 +32,15 @@ const CardSlider = ({title, size }) => {
                                 size === 'card' ? 'w-[280px] h-[180px]' : 'w-[160px] h-[250px]'
                               )}
                             >
-                              <Link href={item.url}>
-                                <Image src={item.img} alt={item.title} className="w-full h-full object-cover"/>
+                              <Link href={`/post/${item.slug}`} className="block w-full h-full relative">
+                                <Image src={item.postImage.url} alt={item.title} fill className="w-full h-full object-cover"/>
                               </Link>
                               <div className="absolute bottom-2 z-10 w-full px-4 py-2">
                                   <Badge asChild>
-                                      <Link href={item.catUrl}>{item.category}</Link>
+                                      <Link href={item.category.url} className="text-[10px] lg:text-sm">{item.category.name}</Link>
                                   </Badge>
-                                  <Link href={item.url} className="block text-white mt-1 text-base font-semibold line-clamp-2">
-                                      {item.title}
+                                  <Link href={`/post/${item.slug}`} className="block text-white mt-1 text-sm lg:text-base font-semibold">
+                                      {item.title.slice(0, 40)}{item.title.length > 40 ? '...' : ''}
                                   </Link>
                               </div>
                             </div>

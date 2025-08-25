@@ -22,8 +22,6 @@ export function useFilteredPosts({ slug, category, tag, author }) {
           (p) => p.category?.slug?.toLowerCase() === category.toLowerCase() ||
                  p.category?.name?.toLowerCase() === category.toLowerCase()
         );
-        console.log(result);
-        console.log(result);
       }
       if (tag) {
         result = result.filter((p) => {

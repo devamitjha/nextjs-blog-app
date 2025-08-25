@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { useDispatch } from 'react-redux'
 import { switchSheet, setSheetAfterDelay } from '@/store/slices/sheetSlice'
 
-const AllAuthor = () => {
+const AllAuthor = ({authorList}) => {
   const dispatch = useDispatch();
    const closeSheet = () => {
       dispatch(switchSheet()) // sets activeSheet to null
@@ -16,20 +16,20 @@ const AllAuthor = () => {
   return (
     <div className="grid grid-cols-2 md:grid-col-3 xl:grid-col-4 gap-4">
       {
-        AuthorList?.map((item, i)=>{
+        authorList?.map((author)=>{
           return(
-              <Link href={`/author/${item.slug}`} className="author-card rounded-xl overflow-hidden border border-gray-200" key={i} onClick={closeSheet}>
-                <div className="w-full overflow-hidden relative">
-                    <Image src={item.bgImg} alt="author-bg" priority className="object-cover w-full h-auto" />
+              <Link href={`/author/${author.slug}`} className="author-card rounded-xl overflow-hidden border border-gray-200" key={author._id} onClick={closeSheet}>
+                <div className="w-full h-[100px] overflow-hidden relative">
+                    <Image src={author.bgImg} alt="author-bg" priority fill className="object-cover w-full h-auto" />
                 </div>
-                <div className="mx-6 -mt-8 pb-7 text-center relative z-2">
-                    <span className="size-16 ring-2 ring-white inline-grid shrink-0 bg-neutral-200 align-middle rounded-full overflow-hidden">
-                      <Image src={item.avatar} priority className="w-16 h-16 object-cover" alt="author-name"/> 
-                    </span>
+                <div className="mx-3 -mt-8 pb-7 text-center relative z-2">
+                    <div className="w-16 h-16 relative size-16 ring-2 ring-white inline-grid shrink-0 bg-neutral-200 align-middle rounded-full overflow-hidden">
+                      <Image src={author.avatar} priority fill className="w-16 h-16 object-cover" alt="author-name"/> 
+                    </div>
                     <div className="mt-3 space-y-1">
-                      <p className="line-clamp-1 text-base font-medium">{item.name}</p>
-                      <p className="line-clamp-1 text-sm text-neutral-500 dark:text-neutral-400">{item.role}</p>
-                      <p className="line-clamp-1 text-sm text-neutral-500 dark:text-neutral-400">Posts:{item.totalPost}</p>
+                      <p className="line-clamp-1 text-base font-medium">{author.name}</p>
+                      <p className="line-clamp-1 text-sm text-neutral-500 dark:text-neutral-400">{author.role}</p>
+                      <p className="line-clamp-1 text-sm text-neutral-500 dark:text-neutral-400">Posts:{author.totalPost}</p>
                     </div>
                 </div>
               </Link>

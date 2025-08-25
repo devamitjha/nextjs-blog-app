@@ -3,8 +3,7 @@ import { connectDB } from "@/lib/db";
 import User from "@/models/User";
 
 export const GET = async (request, { params }) => {
-  const { slug } = params; // no await needed
-  console.log("slug");
+  const { slug } = await params; 
 
   try {
     await connectDB();

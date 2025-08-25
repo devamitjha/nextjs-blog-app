@@ -1,7 +1,17 @@
-export default function Loading() {
+"use client";
+import Lottie from "react-lottie-player";
+import LoadingAnimation from "@/assets/lottie/loading.json";
+
+export default function NotFound() {
   return (
-    <div className="flex items-center justify-center h-screen bg-white">
-      <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
-    </div>
+    <div className="flex flex-col items-center justify-center h-screen">
+        <Lottie
+          loop
+          animationData={LoadingAnimation}
+          play
+          style={{ width: 300, height: 300 }}
+        />
+        <p className="mt-4 text-lg text-gray-600">Page Not Found</p>
+      </div>
   )
 }

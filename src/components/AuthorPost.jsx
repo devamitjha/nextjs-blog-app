@@ -12,13 +12,18 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-
+import useSWR from "swr";
 import blogPostImage2 from "@/assets/posts/4.jpg";
 
-const AuthorPost = ({AuthorPost}) => {
-    console.log(AuthorPost)
-    const totalViews = AuthorPost.reduce((sum, item) => sum + item.views, 0);
-    const totalLikes = AuthorPost.reduce((sum, item) => sum + item.likes, 0);
+
+const fetcher = (url) => fetch(url).then((res) => res.json());
+const AuthorPost = ({AuthorPostID}) => {
+    const { data, error } = useSWR(AuthorPostID ? `/api/posts/by-id/${AuthorPostID}` : null, fetcher);
+    if (!data) return <p>Loading...</p>;
+    if (error) return <p>Error loading author</p>;
+    console.log(data);
+    const totalViews = data.reduce((sum, item) => sum + item.views, 0);
+    const totalLikes = data.reduce((sum, item) => sum + item.likes, 0);
   return (
     <div className="w-full px-4 grid grid-cols-1 gap-4 mt-4">      
         <div className="flex justify-center items-center gap-6">
@@ -64,19 +69,18 @@ const AuthorPost = ({AuthorPost}) => {
         </div>
         {
             
-            AuthorPost.map((item, i)=>{
-                const authorSlug = item.category.slug.toLowerCase().replace(/\s+/g, '-');
+            data?.map((post)=>{                
             return(
-                <div className="shadow-lg bg-white rounded-xl flex justify-between items-center gap-4 p-4" key={i}>
+                <div className="shadow-lg bg-white rounded-xl flex justify-between items-center gap-4 p-4" key={post._id}>
                 <div>
-                    <Link href={`/category/${authorSlug}`} className="text-gray-500  text-sm">{item.category.name}</Link>
-                    <Link href={`/post/${item.slug}`} className="block text-black mt-1 text-sm font-semibold line-clamp-2">
-                        {item.title}
+                    <Link href={`/category/${post.category.url}`} className="text-gray-500  text-sm">{post.category.name}</Link>
+                    <Link href={`/post/${post.slug}`} className="block text-black mt-1 text-sm font-semibold line-clamp-2">
+                        {post.title}
                     </Link>
                     <div className="post-date text-gray-500 mt-1 text-sm">30 minutes ago</div>
                 </div>
-                    <Link href={`/post/${item.slug}`} className="flex-shrink-0">
-                        <Image src={blogPostImage2} alt={item.title} width={85} height={85}  className="object-cover rounded-md w-[85px] h-[85px]"/>             
+                    <Link href={`/post/${post.slug}`} className="flex-shrink-0">
+                        <Image src={post.postImage.url} alt={post.title} width={85} height={85}  className="object-cover rounded-md w-[85px] h-[85px]"/>             
                     </Link>
                 </div>
                 

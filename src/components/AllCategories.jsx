@@ -72,7 +72,7 @@ const AllCategories = ({ title, pageLocation }) => {
                   className="object-cover rounded-md"
                 />
               </div>
-              <p className="text-white absolute top-1/2 left-1/2 transform -translate-1/2 z-20 uppercase text-base font-semibold">
+              <p className="text-white absolute top-1/2 left-1/2 transform -translate-1/2 z-20 uppercase text-[12px] font-semibold w-full text-center px-2">
                 {item.name}
               </p>
             </Link>
