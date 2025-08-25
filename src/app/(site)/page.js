@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import HorizontalSlider from "@/components/HorizontalSlider";
 import CardSlider from "@/components/CardSlider";
 import PopularPosts from "@/components/PopularPosts";

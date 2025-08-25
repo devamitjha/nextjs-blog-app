@@ -3,8 +3,16 @@ import HorizontalSlider from '@/components/HorizontalSlider'
 import PopularPosts from '@/components/PopularPosts'
 import { Search } from 'lucide-react'
 import { Input } from "@/components/ui/input"
+import { headers } from "next/headers";
 
-export default function SearchPage (){
+export default async function SearchPage (){
+  const headersList = await headers();
+  const host = headersList.get("host");
+  const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
+  const baseUrl = `${protocol}://${host}`;
+
+  const res = await fetch(`${baseUrl}/api/posts`, { cache: "no-store" });
+  const posts = await res.json();
   return (
     <div className="search mb-25">
         <div className="px-4 mb-4">
@@ -25,7 +33,7 @@ export default function SearchPage (){
           </div>
         </div>
        <HorizontalSlider title="Categories" subTitle="Explore the most viewed articles"/>
-       <PopularPosts title="Suggested" subTitle="Explore the altest articles"/>
+       <PopularPosts title="Suggested" subTitle="Explore the altest articles" data={posts}/> 
     </div>
   )
 }
